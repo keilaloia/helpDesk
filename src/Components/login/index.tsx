@@ -14,11 +14,11 @@ interface State {
     password: string;
 }
 
-interface Ipost
+interface Ipost//interface must match schema
 {
-    Id?: number;
-    Name?: string;
-    Password?: string;
+    id?: number;
+    userName?: string;
+    userPass?: string;
     IsComplete?: boolean;
 }
 
@@ -59,10 +59,10 @@ export class Login extends React.Component<Props, State> {
         console.log(this.state.login);
         console.log(this.state.password);
 
-        // const data: Ipost = {Id: 6, Name:"addedstuff"}
+        const data: Ipost = {userName:"addedstuff", userPass: "testpasswordpleasework"}
          
-        // httpPUT(`https://localhost:5001/api/Data/${data.Id}/`,data)
-        // console.log(httpGET("https://localhost:5001/api/Data/"));
+        //  httpDELETE(`https://localhost:5001/api/Data/2/`,data)
+         console.log(httpGET("https://localhost:5001/api/Data/"));
 
 
     }
