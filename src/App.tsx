@@ -1,14 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Login} from './Components/login'
-// import http from './Components/_tools/fetchGet'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import {CreateAccount} from './Components/CreateAccount' 
+import {Login} from './Components/Login'
+import {User} from "./Components/User"
+import {HelpDesk} from "./Components/HelpDesk"
+import {Admin} from "./Components/Admin"
+
+
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Login />
-    </div>
+    <Router>
+      <div>
+        {/* <Login /> */}
+        <Route exact path="/" component={Login} />
+        {/* <Route exact path="/create" component={CreateAccount} /> */}
+        <Route exact path="/user" component={User} />
+        <Route exact path="/helpdesk" component={HelpDesk} />
+        <Route exact path="/admin" component={Admin} />
+      </div>
+    </Router>
   );
 }
 

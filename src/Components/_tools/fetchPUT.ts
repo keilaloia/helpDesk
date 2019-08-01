@@ -17,7 +17,7 @@ export const httpPUT = <T> (url: string, data: any): Promise<T> =>
                   }
             })
 
-            .then(() => console.log("putrequestsuccess"))
+            .then(response => response.json())
             .catch((err) => 
             { 
                 console.log(err); 

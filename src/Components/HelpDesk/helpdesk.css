@@ -1,0 +1,15 @@
+#pageTitle
+{
+    text-align: center;
+    margin-left: 10%;
+}
+
+.hide
+{
+    display: none;
+}
+.show
+{
+    display: block;
+    margin-top: 10%;
+}
