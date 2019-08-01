@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link} from "react-router-dom";
-
+//admin page portal planned but never completed
 interface Props {}
 
 interface State {
@@ -16,7 +16,7 @@ export class Admin extends React.Component<Props, State> {
     sessionStorage.clear();
     console.log(sessionStorage);
   } 
-  
+
   render() {
     return(
       <>

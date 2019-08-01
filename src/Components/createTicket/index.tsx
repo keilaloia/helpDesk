@@ -35,6 +35,7 @@ export class CreateTicket extends React.Component<Props, State> {
             });
         console.log(this.state.TT);
     }
+    //handle ticket text change
     handleTicketchange(event: React.ChangeEvent<HTMLTextAreaElement>) {
         this.setState
             ({
@@ -42,6 +43,7 @@ export class CreateTicket extends React.Component<Props, State> {
             });
         console.log(this.state.ticket);
     }
+    //on submit push current data to ticketdb and cache user information into sessionstorage
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         if (sessionStorage.getItem("permission") === "helpdesk") {
@@ -80,7 +82,7 @@ export class CreateTicket extends React.Component<Props, State> {
     render() {
         return (
             <>
-
+            {/* dynamically create all of our tickets */}
                 <TicketCard handleTTchange={this.handleTTchange} TT={this.state.TT} nameid="0"
                     show="show" title="Create tickets" handlesubmit={this.handleSubmit} handleTicketchange={this.handleTicketchange}
                     ticket={this.state.ticket} />

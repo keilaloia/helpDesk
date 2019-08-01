@@ -20,7 +20,7 @@ interface State
 {
     content: string;
 }
-
+//prop state dynamically created in other componetnts/classes
 export class TicketCard extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);

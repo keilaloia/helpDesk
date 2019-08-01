@@ -1,13 +1,6 @@
 import React from 'react';
 import './login.css';
 import { Redirect } from "react-router-dom";
-import { httpGET } from '../_tools/fetchGET';//remove when necasery
-// import { httpPOST } from '../_tools/fetchPOST';//remove when necasery
-// import { httpPUT } from '../_tools/fetchPUT';//remove when necasery
-// import { httpDELETE } from '../_tools/fetchDELETE';//remove when necasery
-// import { HelpDesk } from '../HelpDesk/index';
-
-
 
 interface Props { }
 
@@ -85,10 +78,9 @@ export class Login extends React.Component<Props, State> {
                         }
                     }
                     );
-                // <Redirect to='/User' />
                 break;
             case "helpdesk":
-                this.setState
+                this.setState//we do this weird function create after set state as a hacky .then statement
                     ({
                         helpDesk: true,
                     }, () => {
@@ -97,7 +89,6 @@ export class Login extends React.Component<Props, State> {
                         }
                     }
                     );
-                //    <Redirect to='/HelpDesk' />
                 break;
             case "admin":
                 this.setState
@@ -110,7 +101,6 @@ export class Login extends React.Component<Props, State> {
                         }
                     }
                     );
-                // <Redirect to='/Admin' />
                 break;
         }
     }
@@ -119,7 +109,7 @@ export class Login extends React.Component<Props, State> {
 
         var data: Ipost = { userName: this.state.login, userPass: this.state.password, adminRole: this.state.adminRole, helpDesk: this.state.helpDesk, userCred: this.state.userCred }
         console.log(data);
-
+        //post user data to db and check if logged in or not and loop through the elements and set and cache items to storage
         fetch("https:localhost:5001/api/Data/",
             {
                 method: 'POST',

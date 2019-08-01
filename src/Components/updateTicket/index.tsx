@@ -1,12 +1,9 @@
 import * as React from 'react';
 import "./update.css"
-import { httpGET } from '../_tools/fetchGET';
 import { TicketCard } from '../../TicketCard/index';
-import { httpPUT } from '../_tools/fetchPUT';
-import { string } from 'prop-types';
 
 
-class textcontent
+class textcontent//object for storing text data per ticket content
 {
     public textfield: string;
     public index:number;
@@ -50,7 +47,7 @@ export class UpdateTicket extends React.Component<Props, State> {
     }
 
     GrabData = () => {
-
+        //grab current list of all tickets
         console.log(sessionStorage.getItem("currentuser"))
         if (sessionStorage.getItem("permission") === "helpdesk") {
             const data: IticketPost = { content: this.state.ticket, id: Number(sessionStorage.getItem("currentuser")), TT: this.state.TT }
@@ -79,7 +76,7 @@ export class UpdateTicket extends React.Component<Props, State> {
 
     handleTTchange(event: React.ChangeEvent<HTMLTextAreaElement>){
         
-        let tempArr =[];
+        let tempArr =[];//push data dynamically when edited
         for (let i = 0; i < this.state.grabbedData.length; i++) {
             tempArr.push();
             
@@ -90,35 +87,23 @@ export class UpdateTicket extends React.Component<Props, State> {
             
             let newtext: any = new textcontent(((event.target as HTMLTextAreaElement).value), j);
             tempArr[j] = newtext;
-            this.setState
+            this.setState//set textarr to current ticket object context field
                 ({
                     textArr: tempArr[j]
                 });
                 console.log(this.state.textArr)
-                // console.log(this.state.textArr[0].textfield)
-
-            // console.log(this.state.textArr[Number((event.target as HTMLTextAreaElement).name)])
-            // console.log((event.target as HTMLTextAreaElement).name)
-            // console.log(this.state.textArr)
            }
 
         }
-
-        // this.state.grabbedData[index].content = (event.target as HTMLTextAreaElement).value;
- 
-        //  (event.target as HTMLTextAreaElement).value;
-        // console.log(this.state.ticket);
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-            //  console.log(this.state.textArr[Number((event.target as HTMLFormElement).name)])
-            //  console.log((event.target as HTMLFormElement).name)
-            // console.log(this.state.textArr)
-            // console.log(this.state.textArr)
+
+        //populate data being passed to the backend
         const data: IticketPost = { id:this.state.grabbedData[Number((event.target as HTMLFormElement).name)].id,  content: this.state.textArr.textfield, setID:( Number(sessionStorage.getItem("currentuser"))), TT: this.state.TT }
 
         console.log(data)
-        // httpPUT(`https:localhost:5001/api/Data/ticket/${data.id}`, data)
+        //update data in current ticket context feild
         fetch(`https:localhost:5001/api/Data/ticket/${data.setID}`,
             {
                 method: 'PUT',

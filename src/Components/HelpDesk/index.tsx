@@ -28,7 +28,7 @@ export class HelpDesk extends React.Component<Props, State> {
     }
   }
 
-  clearStorage = ()=>//logs user in and out
+  clearStorage = ()=>//logs user out
   {
     sessionStorage.clear();
     console.log(sessionStorage);
@@ -56,6 +56,7 @@ export class HelpDesk extends React.Component<Props, State> {
   render() {
     return(
       <>
+            {/* hide our input fields until button click*/}
 
         <Link id="logout" to="/" onClick={this.clearStorage}>logOut</Link>
         <h2 id="pageTitle">HelpDesk DashBoard</h2>
