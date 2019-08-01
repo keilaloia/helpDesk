@@ -1,8 +1,12 @@
+# `HELP DESK`
+this is a quick app made as a part of a coding interview
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prerequisits
 
-In the project directory, you can run:
+please run below commands
+this application expects you to hace dotnet and npm tools installed for command line
 
 ### `npm start`
 
@@ -16,7 +20,7 @@ You will also see any lint errors in the console.
 ### `dotnet run`
 Runs the app in the development mode.<br>
 Open [https://localhost:5001] to view it in the browser.
-
+In the project directory, you can run:
 
 ### `instructions`
 1. open helpdeskAPI and type in the command line dotnet run  
