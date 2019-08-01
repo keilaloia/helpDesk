@@ -18,7 +18,7 @@ Runs the app in the development mode.<br>
 Open [https://localhost:5001] to view it in the browser.
 
 
-## `instructions`
+### `instructions`
 1.open helpdeskAPI and type in the command line dotnet run  
 to start you back end server.
 2. open m_helpdesk and type in the command line npm start to start your react server 
@@ -29,24 +29,24 @@ frontend: [http://localhost:3000]
 5. once login is pressed it will automatically check for your username and hashedpassword within the database. if you are found you will be logged in with your information. 
 otherwise you will be creating a new account and populate your data from there
 
-##`working routes/pages`
+### `working routes/pages`
 1./
 2./user
 3./helpdesk
 4./admin -- in development
 
-##`user stories completed`
+### `user stories completed`
 User Story: As a User, I can log in and out of the system.
 User Story: As a Helpdesk User, I can create a support ticket.
 User Story: As a Helpdesk User, I can update my support tickets.
 User Story: As a Helpdesk User, I can view all of my support tickets.
 
-##`user stories still in development`
+### `user stories still in development`
 User Story: As a Helpdesk Team Member, I can view all support tickets. 
 User Story: As a Helpdesk Team Member, I can update any support ticket. 
 User Story: As a Helpdesk Team Member, I can delete any support ticket.
 
 
-#`git respositories`
+### `git respositories`
 frontend: [https://github.com/keilaloia/helpDesk]
 backend: [https://github.com/keilaloia/helpdesk_server]
