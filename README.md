@@ -12,33 +12,41 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### dotnet run
+Runs the app in the development mode.<br>
+Open [https://localhost:5001] to view it in the browser.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##instructions
+1.open helpdeskAPI and type in the command line dotnet run  
+to start you back end server.
+2. open m_helpdesk and type in the command line npm start to start your react server 
+3. now both of your servers should be running on 
+backend: [https://localhost:5001]
+frontend: [http://localhost:3000]
+4. once here feel free to create or log into an account by typing in your username or password and picking a role from the dropdown menu.
+5. once login is pressed it will automatically check for your username and hashedpassword within the database. if you are found you will be logged in with your information. 
+otherwise you will be creating a new account and populate your data from there
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+##working routes/pages
+1./
+2./user
+3./helpdesk
+4./admin -- in development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##user stories completed
+User Story: As a User, I can log in and out of the system.
+User Story: As a Helpdesk User, I can create a support ticket.
+User Story: As a Helpdesk User, I can update my support tickets.
+User Story: As a Helpdesk User, I can view all of my support tickets.
 
-### `npm run eject`
+##user stories still in development
+User Story: As a Helpdesk Team Member, I can view all support tickets. 
+User Story: As a Helpdesk Team Member, I can update any support ticket. 
+User Story: As a Helpdesk Team Member, I can delete any support ticket.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#git respositories
+frontend: [https://github.com/keilaloia/helpDesk]
+backend: [https://github.com/keilaloia/helpdesk_server]
