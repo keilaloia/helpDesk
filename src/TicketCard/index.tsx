@@ -1,59 +1,140 @@
 import * as React from 'react';
-import { number } from 'prop-types';
+import { number, string } from 'prop-types';
+import { EventEmitter } from 'events';
 
 interface Props {
-    id?: number; 
-    nameid:string;
+    id?: number;
     key?: number;
     show: string;
-    TT?: string;
-    handleTTchange?: any;
-    title:string;
-    handlesubmit: any;
-    content?:any;
-    ticket: string;
-    handleTicketchange: any;
-    ogtext?:string
-}
+    ogtext?: string;
+    title?: string;
+    update: boolean;
 
-interface State
-{
+}
+interface State {
+    title: string;
     content: string;
 }
+
+
+interface IticketData {
+    id: number;
+    content: string;
+    tt: string;
+    userID?: number
+}
+
 //prop state dynamically created in other componetnts/classes
 export class TicketCard extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            
-            content: ""
+            title: (props.title) ? props.title : "",
+            content: (props.ogtext) ? props.ogtext : ""
         };
 
         this.handleTTchange = this.handleTTchange.bind(this);
+        this.handleTicketchange = this.handleTicketchange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-
-    handleTTchange(event: React.ChangeEvent<HTMLTextAreaElement>){
+    handleTicketchange(event: React.ChangeEvent<HTMLTextAreaElement>) {
         this.setState
             ({
                 content: (event.target as HTMLTextAreaElement).value
             });
     }
-    render()
-   {
-    return(
-        <div className ="contentWrapper">
-            <input className = {this.props.show}type="text" placeholder="Ticket Title" value={this.props.TT} onChange={this.props.handleTTchange} required/>      
-            <h2>{this.props.title}</h2>
-            <form name = {this.props.nameid}className ="helpdeskWrapper" onSubmit={this.props.handlesubmit}>
-                <textarea maxLength= {500} name={this.props.nameid}id="box"defaultValue={this.props.ogtext} value ={this.props.content} onChange={this.props.handleTicketchange}>
-   
-                </textarea>
-                <input type="submit" id="sBtn" value="Submit Ticket" />
-            </form>
-        </div>
-    );
-   }
 
-  };
+    handleTTchange(event: React.ChangeEvent<HTMLInputElement>) {
+        this.setState
+            ({
+                title: (event.target as HTMLInputElement).value
+            });
+    }
+
+    handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        //move permissions to backend
+        event.preventDefault();
+        if (sessionStorage.getItem("permission") === "helpdesk") {
+            if (this.props.update) {
+
+                const createdata: IticketData =
+                {
+                    //get id of this card 
+                    id: (this.props.id) ? this.props.id : 0,
+                    content: this.state.content,
+                    tt: this.state.title,
+                    userID: Number(sessionStorage.getItem("currentuser"))
+                }
+                
+                console.log("WE UPDATING UP IN HERE")
+                // console.log(createdata)
+                //update data in current ticket context feild
+                fetch(`https:localhost:5001/api/Data/ticket/${createdata.id}`,
+                    {
+                        method: 'PUT',
+                        body: JSON.stringify(createdata),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+
+                    .then(response => response.json())
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
+            }
+            else {
+                const createdata: IticketData =
+                {
+                    //get current userID
+                    id: Number(sessionStorage.getItem("currentuser")),
+                    content: this.state.content,
+                    tt: this.state.title
+                }
+                console.log("WE POSTING UP IN HERE")
+
+                fetch("https:localhost:5001/api/Data/ticket",
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(createdata),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(body => {
+                        console.log(body);
+                        this.setState(//successful submit reset ticket
+                            {
+                                content: "",
+                                title: ""
+                            }
+                        )
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                console.log("authorized")
+            }
+        }
+    }
+    render() {
+        return (
+            <div className="contentWrapper">
+                <input className={this.props.show} type="text" placeholder="Ticket Title" value={this.state.title} onChange={this.handleTTchange} required />
+                <h2>{this.props.title}</h2>
+                <form className="helpdeskWrapper" onSubmit={this.handleSubmit}>
+                    <textarea maxLength={500} id="box" value={this.state.content} onChange={this.handleTicketchange}>
+
+                    </textarea>
+                    <input type="submit" id="sBtn" value="Submit Ticket" />
+                </form>
+            </div>
+        );
+    }
+
+};

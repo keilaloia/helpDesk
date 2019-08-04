@@ -5,7 +5,7 @@ interface Props {}
 
 interface State {
 }
-
+//simple user page just log in and log out
 export class User extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
