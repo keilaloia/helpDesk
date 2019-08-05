@@ -1,5 +1,5 @@
+
 import * as React from 'react';
-import "./update.css"
 import { TicketCard } from '../../TicketCard/index';
 
 interface Props { }
@@ -16,7 +16,7 @@ interface IticketPost {
 
 
 
-export class UpdateTicket extends React.Component<Props, State> {
+export class AdminTicket extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -31,10 +31,10 @@ export class UpdateTicket extends React.Component<Props, State> {
     GrabData = () => {
         //grab current list of all tickets
         console.log(sessionStorage.getItem("currentuser"))
-        if (sessionStorage.getItem("permission") === "helpdesk") {
+        if (sessionStorage.getItem("permission") === "admin") {
             const userPath = Number(sessionStorage.getItem("currentuser"));
 
-            fetch(`https:localhost:5001/api/Data/ticket/${userPath}`)//grab all of your tickets made on this account
+            fetch(`https:localhost:5001/api/Data/ticket/all/${userPath}`)//grab all of your tickets made on this account
                 .then(response => response.json())
                 .then(body => {
                     this.setState
@@ -63,7 +63,7 @@ export class UpdateTicket extends React.Component<Props, State> {
             <h1>My Tickets</h1>
             {/* dynamically create all of our tickets */}
                 {this.state.grabbedData.map((data:any )=> 
-                (<TicketCard id={data.id} key={data.id}  show="hide" othershow = "hide" ogtext =
+                (<TicketCard id={data.id} key={data.id}  show="hide" othershow="show"ogtext =
                 {data.content}
                 title = {data.tt}
                 update = {true} />))}

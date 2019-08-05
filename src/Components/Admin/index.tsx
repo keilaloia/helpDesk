@@ -1,35 +1,53 @@
 import * as React from 'react';
 import { Link} from "react-router-dom";
+import {AdminTicket} from "../adminTicket";
+
 //admin page portal planned but never completed
 interface Props {}
 
 interface State {
+  updateClicked: boolean;
+  updateHide: string;
+
+
 }
 /*semi psuedo coded this class would be very similar to helpdesk*/
 export class Admin extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state =
+    {
+      updateClicked: false,
+      updateHide: "show",
+
+    }
   }
 
-  clearStorage = ()=>//logs user in and out
+  clearStorage = ()=>//logs user out
   {
     sessionStorage.clear();
     console.log(sessionStorage);
   } 
-   /*create on change funciton similar to helpdesk but ignore where clause
-    instead grab the data check if user permission is admin and use put a method 
-    to update selected and edited ticket
-        */
+  displayUpdate = () => {
+
+    this.setState(
+      {
+        updateClicked: true,
+        updateHide: "hide"
+      }
+    )
+  }
   render() {
     return(
       <>
-        {/*import dynamic create card for every ticket within ticket 
-        database using a get method with my sql queury of 
-        SELECT * FROM ticket
-        */}
-        <h1>Admin DashBoard</h1>
-        <Link to="/" onClick={this.clearStorage}>logOut</Link>
+            {/* hide our input fields until button click*/}
 
+        <Link id="logout" to="/" onClick={this.clearStorage}>logOut</Link>
+        <h2 id="pageTitle">Admin DashBoard</h2>
+        <button onClick={ this.displayUpdate} className= {this.state.updateHide}id="ctBtn">update Ticket</button>
+        {this.state.updateClicked ? <AdminTicket /> : null}
+
+       
       </>
     );
   }

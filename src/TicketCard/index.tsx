@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { number, string } from 'prop-types';
 import { EventEmitter } from 'events';
+import { httpDELETE } from '../Components/_tools/fetchDELETE';
 
 interface Props {
     id?: number;
     key?: number;
     show: string;
+    othershow: string;
+
     ogtext?: string;
     title?: string;
     update: boolean;
@@ -53,10 +56,25 @@ export class TicketCard extends React.Component<Props, State> {
             });
     }
 
+    handleDelete(event: React.MouseEvent<HTMLButtonElement>)
+    {
+        if(sessionStorage.getItem("permission") === "admin")
+        {
+            const createdata: IticketData =
+            {
+                //get id of this card 
+                id: (this.props.id) ? this.props.id : 0,
+                content: this.state.content,
+                tt: this.state.title,
+                userID: Number(sessionStorage.getItem("currentuser"))
+            }
+            httpDELETE(`https:localhost:5001/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`,createdata )
+        }
+    }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         //move permissions to backend
         event.preventDefault();
-        if (sessionStorage.getItem("permission") === "helpdesk") {
+        if (sessionStorage.getItem("permission") === "helpdesk" || sessionStorage.getItem("permission") === "admin") {
             if (this.props.update) {
 
                 const createdata: IticketData =
@@ -133,6 +151,8 @@ export class TicketCard extends React.Component<Props, State> {
                     </textarea>
                     <input type="submit" id="sBtn" value="Submit Ticket" />
                 </form>
+                
+                <button className= {this.props.othershow}onClick={this.handleDelete.bind(this)}>Delete</button>
             </div>
         );
     }
