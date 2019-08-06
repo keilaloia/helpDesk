@@ -181,7 +181,7 @@ export class Login extends React.Component<Props, State> {
     render() {
         return (
             <>
-                <h1 id="pageTitle">Please log in or sign up will accure automatically</h1>
+                <h1 id="pageTitle">Please log in or sign up will occur automatically</h1>
                 <form className="loginWrapper" onSubmit={this.handleSubmit}>
                     <input type="text" id="login" placeholder="username" value={this.state.login} onChange={this.handleNamechange} />
                     <input type="password" id="password" placeholder="password" value={this.state.password} onChange={this.handlePasschange} required />
