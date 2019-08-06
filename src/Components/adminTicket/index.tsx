@@ -33,7 +33,7 @@ export class AdminTicket extends React.Component<Props, State> {
         if (sessionStorage.getItem("permission") === "admin") {
             const userPath = Number(sessionStorage.getItem("currentuser"));
 
-            fetch(`http:localhost:5000/api/Data/ticket/all/${userPath}`)//grab all of your tickets made on this account
+            fetch(`https:localhost:5001/api/Data/ticket/all/${userPath}`)//grab all of your tickets made on this account
                 .then(response => response.json())
                 .then(body => {
                     this.setState

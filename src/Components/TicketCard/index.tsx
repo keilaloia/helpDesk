@@ -65,7 +65,7 @@ export class TicketCard extends React.Component<Props, State> {
                 tt: this.state.title,
                 userID: Number(sessionStorage.getItem("currentuser"))
             }
-            httpDELETE(`http:localhost:5000/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`, createdata)
+            httpDELETE(`https:localhost:5001/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`, createdata)
             window.location.reload(true);
         }
     }
@@ -84,7 +84,7 @@ export class TicketCard extends React.Component<Props, State> {
                 }
 
                 //update data in current ticket context feild
-                fetch(`http:localhost:5000/api/Data/ticket/${createdata.id}`,
+                fetch(`https:localhost:5001/api/Data/ticket/${createdata.id}`,
                     {
                         method: 'PUT',
                         body: JSON.stringify(createdata),
@@ -109,7 +109,7 @@ export class TicketCard extends React.Component<Props, State> {
                     tt: this.state.title
                 }
 
-                fetch("http:localhost:5000/api/Data/ticket",
+                fetch("https:localhost:5001/api/Data/ticket",
                     {
                         method: 'POST',
                         body: JSON.stringify(createdata),
