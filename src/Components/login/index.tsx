@@ -1,6 +1,7 @@
 import React from 'react';
-import './login.css';
 import { Redirect } from "react-router-dom";
+import './login.css';
+
 
 interface Props { }
 
@@ -140,7 +141,7 @@ export class Login extends React.Component<Props, State> {
                         this.setState({
                             redirectPath: "helpdesk"
                         });
-                    console.log("helpdesklogin");
+                        console.log("helpdesklogin");
 
                     }
                     else if (body[0].userCred) {
@@ -160,8 +161,7 @@ export class Login extends React.Component<Props, State> {
                         console.log("SOMETHING WENT WRONG SEE HAPPENED")
                     }
                 }
-                else
-                {
+                else {
                     console.log("ultra messed up trigger");
                 }
             })
@@ -181,7 +181,7 @@ export class Login extends React.Component<Props, State> {
     render() {
         return (
             <>
-            <h1 id="pageTitle">Please log in or sign up will accure automatically</h1>
+                <h1 id="pageTitle">Please log in or sign up will accure automatically</h1>
                 <form className="loginWrapper" onSubmit={this.handleSubmit}>
                     <input type="text" id="login" placeholder="username" value={this.state.login} onChange={this.handleNamechange} />
                     <input type="password" id="password" placeholder="password" value={this.state.password} onChange={this.handlePasschange} required />

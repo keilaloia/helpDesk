@@ -13,7 +13,7 @@ interface State {
   updateHide: string;
 
 }
-
+//control what shows and if user input tickets should show on click
 export class HelpDesk extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

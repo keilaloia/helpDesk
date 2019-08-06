@@ -31,7 +31,10 @@ code {
   
 
 }
-
+label
+{
+  display: none;
+}
 
 #logout
 {

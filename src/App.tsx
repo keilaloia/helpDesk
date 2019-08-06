@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import {CreateAccount} from './Components/CreateAccount' 
-import {Login} from './Components/Login'
+import {Login} from './Components/login'
 import {User} from "./Components/User"
 import {HelpDesk} from "./Components/HelpDesk"
 import {Admin} from "./Components/Admin"
