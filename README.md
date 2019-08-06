@@ -33,6 +33,9 @@ This application expects you to hace dotnet which can be found[https://dotnet.mi
 Additionally npm tools installed for command line which can be found
 [https://nodejs.org/en/]
 
+### `npm install`
+when you open helpDesk please make sure to run npm install so you have access to npm start
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
