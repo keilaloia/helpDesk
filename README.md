@@ -3,11 +3,12 @@ This is a quick app made as a part of a coding interview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ### screenshot
-![Alt text](readmemedia/admindashboard.png)
+![Alt text](readmemedia/userlogin.png)
 ![Alt text](readmemedia/loginpage.png)
 ![Alt text](readmemedia/ticketcreate.png)
 ![Alt text](readmemedia/ticketupdate.png)
-![Alt text](readmemedia/userlogin.png)
+![Alt text](readmemedia/admindashboard.png)
+
 
 
 ### 'ERROR FIXES'
@@ -75,7 +76,7 @@ otherwise you will be creating a new account and populate your data from there
 
 3./helpdesk
 
-4./admin -- in development
+4./admin 
 
 ### `user stories completed`
 User Story: As a User, I can log in and out of the system.
