@@ -68,11 +68,12 @@ export class TicketCard extends React.Component<Props, State> {
                 userID: Number(sessionStorage.getItem("currentuser"))
             }
             httpDELETE(`https:localhost:5001/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`, createdata)
+            window.location.reload(true);
         }
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         //move permissions to backend
-        event.preventDefault();
+        // event.preventDefault();
         if (sessionStorage.getItem("permission") === "helpdesk" || sessionStorage.getItem("permission") === "admin") {
             if (this.props.update) {
 
