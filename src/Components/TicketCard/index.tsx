@@ -70,7 +70,7 @@ export class TicketCard extends React.Component<Props, State> {
         }
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        //saftey check fronend permission eventhough it happens on the backend
+        //saftey check frontend permission eventhough it happens on the backend
         if (sessionStorage.getItem("permission") === "helpdesk" || sessionStorage.getItem("permission") === "admin") {
             if (this.props.update) {
 

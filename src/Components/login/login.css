@@ -3,7 +3,7 @@
     max-width: 350px;
     max-height: 300px;
     background-color: #FFB900;
-    border: black solid 2px;
+    border: white solid 2px;
     margin: auto;
     display: block;
     margin-top: 20%; 
@@ -18,14 +18,14 @@ input
     display: block;
     font-size: 22px;
     margin-left: .5%;
-  border: solid 1px black;
+  border: solid 1px white;
 
 }
 
 #lBtn
 {
   background-color: #7FBA00;
-  border: solid 2px black;
+  border: solid 2px white;
 
   color: white;
 }
