@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #033E8C;
+  background-color: #00A4EF;
 }
 
 code {
@@ -20,8 +20,8 @@ code {
 
 .navbar
 {
-  background-color: #F2994B;
-  border-bottom: #A65B5B solid 3px;
+  background-color: #7FBA00;
+  border-bottom: #FFB900 solid 3px;
 }
 .navbar-brand
 {
@@ -55,10 +55,10 @@ code {
   margin-top: 5%;  
   margin-left: 40%;
   width: 20%;
-  background-color: #F2994B;
+  background-color: #7FBA00;
   color: white;
   border-radius: .25rem;
-  border: solid 2px #A65B5B;
+  border: solid 2px black;
 }
 
 #usertext

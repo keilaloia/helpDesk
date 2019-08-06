@@ -1,7 +1,5 @@
 import * as React from 'react';
 import "./ticket.css"
-import { number, string } from 'prop-types';
-import { EventEmitter } from 'events';
 import { httpDELETE } from '../_tools/fetchDELETE';
 
 interface Props {
@@ -72,8 +70,7 @@ export class TicketCard extends React.Component<Props, State> {
         }
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        //move permissions to backend
-        // event.preventDefault();
+        //saftey check fronend permission eventhough it happens on the backend
         if (sessionStorage.getItem("permission") === "helpdesk" || sessionStorage.getItem("permission") === "admin") {
             if (this.props.update) {
 
@@ -86,8 +83,6 @@ export class TicketCard extends React.Component<Props, State> {
                     userID: Number(sessionStorage.getItem("currentuser"))
                 }
 
-                console.log("WE UPDATING UP IN HERE")
-                // console.log(createdata)
                 //update data in current ticket context feild
                 fetch(`https:localhost:5001/api/Data/ticket/${createdata.id}`,
                     {
@@ -113,7 +108,6 @@ export class TicketCard extends React.Component<Props, State> {
                     content: this.state.content,
                     tt: this.state.title
                 }
-                console.log("WE POSTING UP IN HERE")
 
                 fetch("https:localhost:5001/api/Data/ticket",
                     {
