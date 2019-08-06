@@ -1,7 +1,8 @@
 import * as React from 'react';
+import "./ticket.css"
 import { number, string } from 'prop-types';
 import { EventEmitter } from 'events';
-import { httpDELETE } from '../Components/_tools/fetchDELETE';
+import { httpDELETE } from '../_tools/fetchDELETE';
 
 interface Props {
     id?: number;
@@ -56,10 +57,8 @@ export class TicketCard extends React.Component<Props, State> {
             });
     }
 
-    handleDelete(event: React.MouseEvent<HTMLButtonElement>)
-    {
-        if(sessionStorage.getItem("permission") === "admin")
-        {
+    handleDelete(event: React.MouseEvent<HTMLButtonElement>) {
+        if (sessionStorage.getItem("permission") === "admin") {
             const createdata: IticketData =
             {
                 //get id of this card 
@@ -68,7 +67,7 @@ export class TicketCard extends React.Component<Props, State> {
                 tt: this.state.title,
                 userID: Number(sessionStorage.getItem("currentuser"))
             }
-            httpDELETE(`https:localhost:5001/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`,createdata )
+            httpDELETE(`https:localhost:5001/api/Data/ticket/delete/${Number(sessionStorage.getItem("currentuser"))}`, createdata)
         }
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -85,7 +84,7 @@ export class TicketCard extends React.Component<Props, State> {
                     tt: this.state.title,
                     userID: Number(sessionStorage.getItem("currentuser"))
                 }
-                
+
                 console.log("WE UPDATING UP IN HERE")
                 // console.log(createdata)
                 //update data in current ticket context feild
@@ -142,18 +141,25 @@ export class TicketCard extends React.Component<Props, State> {
     }
     render() {
         return (
-            <div className="contentWrapper">
-                <input className={this.props.show} type="text" placeholder="Ticket Title" value={this.state.title} onChange={this.handleTTchange} required />
-                <h2>{this.props.title}</h2>
-                <form className="helpdeskWrapper" onSubmit={this.handleSubmit}>
-                    <textarea maxLength={500} id="box" value={this.state.content} onChange={this.handleTicketchange}>
+            <div >
+                <div className="contentWrapper">
+                    <div id="ticketnav">
+                        <input className={this.props.show} id="TT" type="text" placeholder="Ticket Title" value={this.state.title} onChange={this.handleTTchange} required />
+                        <h2>{this.props.title}</h2>
 
-                    </textarea>
-                    <input type="submit" id="sBtn" value="Submit Ticket" />
-                </form>
-                
-                <button className= {this.props.othershow}onClick={this.handleDelete.bind(this)}>Delete</button>
+                        <button className={this.props.othershow} id="dBtn" onClick={this.handleDelete.bind(this)}>Delete</button>
+                    </div>
+                    <form className="helpdeskWrapper" onSubmit={this.handleSubmit}>
+                        <textarea maxLength={500} id="box" value={this.state.content} onChange={this.handleTicketchange}>
+
+                        </textarea>
+                        <input type="submit" id="sBtn" value="Submit Ticket" />
+
+                    </form>
+
+                </div>
             </div>
+
         );
     }
 

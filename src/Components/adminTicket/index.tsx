@@ -1,7 +1,6 @@
 
 import * as React from 'react';
-import { TicketCard } from '../../TicketCard/index';
-
+import { TicketCard } from '../TicketCard/';
 interface Props { }
 
 interface State {
@@ -59,7 +58,9 @@ export class AdminTicket extends React.Component<Props, State> {
    
     render() {
         return (
-            <>      
+            <>  
+            {/* <div className="adminwrapper">     */}
+
             <h1>My Tickets</h1>
             {/* dynamically create all of our tickets */}
                 {this.state.grabbedData.map((data:any )=> 
@@ -67,7 +68,7 @@ export class AdminTicket extends React.Component<Props, State> {
                 {data.content}
                 title = {data.tt}
                 update = {true} />))}
-            
+            {/* </div> */}
             </>
         );
     }

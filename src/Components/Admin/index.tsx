@@ -42,7 +42,6 @@ export class Admin extends React.Component<Props, State> {
       <>
             {/* hide our input fields until button click*/}
 
-        <Link id="logout" to="/" onClick={this.clearStorage}>logOut</Link>
         <h2 id="pageTitle">Admin DashBoard</h2>
         <button onClick={ this.displayUpdate} className= {this.state.updateHide}id="ctBtn">update Ticket</button>
         {this.state.updateClicked ? <AdminTicket /> : null}

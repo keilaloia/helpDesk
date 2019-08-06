@@ -1,3 +1,8 @@
+*
+{
+  font-family: 'Oxygen', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,58 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #033E8C;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbar
+{
+  background-color: #F2994B;
+  border-bottom: #A65B5B solid 3px;
+}
+.navbar-brand
+{
+  color: white !important;
+  font-weight: 900;
+  font-size: 20px;
+  
+
+}
+
+
+#logout
+{
+  font-weight: 900;
+  font-size: 16px;
+  color: white;
+  float: right;
+  padding-right: 5%;
+  
+}
+
+#pageTitle
+{
+  margin-top: 5%;
+  /* display: flex;
+  justify-content: center; */
+}
+
+#ctBtn
+{
+  margin-top: 5%;  
+  margin-left: 40%;
+  width: 20%;
+  background-color: #F2994B;
+  color: white;
+  border-radius: .25rem;
+  border: solid 2px #A65B5B;
+}
+
+#usertext
+{
+  margin-top: 30%;
 }

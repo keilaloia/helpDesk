@@ -3,7 +3,6 @@ import { Link} from "react-router-dom";
 import {CreateTicket} from "../createTicket";
 import {UpdateTicket} from "../updateTicket";
 
-import "./helpdesk.css"
 interface Props {}
 
 interface State {
@@ -28,11 +27,6 @@ export class HelpDesk extends React.Component<Props, State> {
     }
   }
 
-  clearStorage = ()=>//logs user out
-  {
-    sessionStorage.clear();
-    console.log(sessionStorage);
-  } 
 
   displayCreate = () => {
 
@@ -58,7 +52,6 @@ export class HelpDesk extends React.Component<Props, State> {
       <>
             {/* hide our input fields until button click*/}
 
-        <Link id="logout" to="/" onClick={this.clearStorage}>logOut</Link>
         <h2 id="pageTitle">HelpDesk DashBoard</h2>
         <button onClick={ this.displayCreate} className= {this.state.createHide}id="ctBtn">Create Ticket</button>
         {this.state.createClicked ? <CreateTicket /> : null}

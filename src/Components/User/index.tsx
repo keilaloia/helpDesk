@@ -19,8 +19,7 @@ export class User extends React.Component<Props, State> {
   render() {
     return(
       <>
-        <h1>User DashBoard</h1>
-        <Link to="/" onClick={this.clearStorage}>logOut</Link>
+        <h1 id="usertext">No permissions please log out</h1>
       </>
     );
   }

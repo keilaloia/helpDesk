@@ -1,6 +1,5 @@
 import * as React from 'react';
-import "./update.css"
-import { TicketCard } from '../../TicketCard/index';
+import { TicketCard } from '../TicketCard';
 
 interface Props { }
 
