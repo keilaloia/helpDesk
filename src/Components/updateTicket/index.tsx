@@ -33,7 +33,7 @@ export class UpdateTicket extends React.Component<Props, State> {
         if (sessionStorage.getItem("permission") === "helpdesk") {
             const userPath = Number(sessionStorage.getItem("currentuser"));
 
-            fetch(`https:localhost:5001/api/Data/ticket/${userPath}`)//grab all of your tickets made on this account
+            fetch(`http:localhost:5000/api/Data/ticket/${userPath}`)//grab all of your tickets made on this account
                 .then(response => response.json())
                 .then(body => {
                     this.setState
