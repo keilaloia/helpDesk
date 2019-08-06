@@ -111,7 +111,7 @@ export class Login extends React.Component<Props, State> {
         var data: Ipost = { userName: this.state.login, userPass: this.state.password, adminRole: this.state.adminRole, helpDesk: this.state.helpDesk, userCred: this.state.userCred }
         console.log(data);
         //post user data to db and check if logged in or not and loop through the elements and set and cache items to storage
-        fetch("https:localhost:5001/api/Data/",
+        fetch("http:localhost:5000/api/Data/",
             {
                 method: 'POST',
                 body: JSON.stringify(data),
