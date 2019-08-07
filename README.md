@@ -3,8 +3,8 @@ This is a quick app made as a part of a coding interview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ### tutorial video
-[![tutorial](https://youtu.be/VTkXxgmsuNw)]
-(https://youtu.be/VTkXxgmsuNw)
+https://youtu.be/VTkXxgmsuNw
+-------------------------------------
 
 
 ### 'ERROR FIXES'
