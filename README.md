@@ -83,12 +83,12 @@ User Story: As a Helpdesk User, I can update my support tickets.
 
 User Story: As a Helpdesk User, I can view all of my support tickets.
 
-### `user stories still in development`
 User Story: As a Helpdesk Team Member, I can view all support tickets. 
 
 User Story: As a Helpdesk Team Member, I can update any support ticket. 
 
 User Story: As a Helpdesk Team Member, I can delete any support ticket.
+
 
 
 ### `git respositories`
