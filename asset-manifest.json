@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/helpDesk/static/css/main.43ab4f4f.chunk.css",
+    "main.js": "/helpDesk/static/js/main.d8dc9eae.chunk.js",
+    "main.js.map": "/helpDesk/static/js/main.d8dc9eae.chunk.js.map",
+    "runtime~main.js": "/helpDesk/static/js/runtime~main.68d417dc.js",
+    "runtime~main.js.map": "/helpDesk/static/js/runtime~main.68d417dc.js.map",
+    "static/js/2.20665b99.chunk.js": "/helpDesk/static/js/2.20665b99.chunk.js",
+    "static/js/2.20665b99.chunk.js.map": "/helpDesk/static/js/2.20665b99.chunk.js.map",
+    "index.html": "/helpDesk/index.html",
+    "precache-manifest.e03b6ce299793eca941d0975ee50bb98.js": "/helpDesk/precache-manifest.e03b6ce299793eca941d0975ee50bb98.js",
+    "service-worker.js": "/helpDesk/service-worker.js",
+    "static/css/main.43ab4f4f.chunk.css.map": "/helpDesk/static/css/main.43ab4f4f.chunk.css.map"
+  }
+}
