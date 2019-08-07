@@ -14,8 +14,8 @@
     "react-scripts": "3.0.1",
     "typescript": "3.5.3"
   },
+  "homepage": "https://keilaloia.github.io/helpDesk",
   "scripts": {
-    "homepage": "https://keilaloia.github.io/helpDesk",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
