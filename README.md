@@ -2,9 +2,9 @@
 This is a quick app made as a part of a coding interview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-### screenshot
-[![Alt text](https://www.youtube.com/watch?v=ZHvFrp7TPEA&t=62s)]
-(https://www.youtube.com/watch?v=ZHvFrp7TPEA&t=62s)
+### tutorial video
+[![tutorial](readmemedia/userlogin.png)]
+(https://youtu.be/VTkXxgmsuNw "tutorial")
 
 
 ### 'ERROR FIXES'
